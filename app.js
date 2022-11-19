@@ -1,7 +1,7 @@
 // https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=WIFI%3AT%3AWPA;S:KPNbox12;P:Welkom1348!; wifi qr code
 
 const IMG_AFG  = document.querySelector("#IMG_AFG");
-const FILE_INPUT = document.getElementById("FILE_INPUT");
+// const FILE_INPUT = document.getElementById("FILE_INPUT").;
 const SHARE_BTN = document.getElementById("SHARE_BTN");
 
 const OUTPUT = document.getElementById("OUTPUT");
@@ -25,15 +25,30 @@ const OUTPUT = document.getElementById("OUTPUT");
 
 // });
 
+function FILE()
+{
+    // Get a reference to our file input
+    const fileInput = document.querySelector('input[type="file"]');
+    var img = IMG_AFG.src.split("/");
+    var imglen = img.length;
 
-
+    // Create a new File object
+    const myFile = new File(['Hello World!'], img[imglen-1], {
+        type: 'image/jpg',
+        lastModified: new Date(),
+    });
+    
+    // Now let's create a DataTransfer to get a FileList
+    const dataTransfer = new DataTransfer();
+    dataTransfer.items.add(myFile);
+    fileInput.files = dataTransfer.files;
+    
+    return fileInput.files;
+}
 
 SHARE_BTN.addEventListener("click", async ()=>{
     // const files = FILE_INPUT.files;
-    const files = {
-        name:IMG_AFG.src,
-        type:"image/jpg"
-    }
+       const files = FILE();
     
     if (!navigator.canShare) {
         OUTPUT.textContent = "Not supported canShare";
