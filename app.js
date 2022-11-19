@@ -25,8 +25,6 @@ const OUTPUT = document.getElementById("OUTPUT");
 
 // });
 
-function FILE()
-{
     // Get a reference to our file input
     const fileInput = document.querySelector('input[type="file"]');
     var img = IMG_AFG.src.split("/");
@@ -43,12 +41,10 @@ function FILE()
     dataTransfer.items.add(myFile);
     fileInput.files = dataTransfer.files;
     
-    return fileInput.files;
-}
 
 SHARE_BTN.addEventListener("click", async ()=>{
     // const files = FILE_INPUT.files;
-       const files = FILE();
+       const files = fileInput.files;
     
     if (!navigator.canShare) {
         OUTPUT.textContent = "Not supported canShare";
