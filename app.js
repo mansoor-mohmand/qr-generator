@@ -26,30 +26,26 @@ const OUTPUT = document.getElementById("OUTPUT");
 // });
 
     // Get a reference to our file input
-    const fileInput = document.querySelector('input[type="file"]');
-    var img = IMG_AFG.src.split("/");
-    var imglen = img.length;
+    // const fileInput = document.querySelector('input[type="file"]');
+    // var img = IMG_AFG.src.split("/");
+    // var imglen = img.length;
 
-    // Create a new File object
-    const myFile = new File(['Hello World!'], img[imglen-1], {
-        type: 'image/jpg',
-        lastModified: new Date(),
-    });
+    // // Create a new File object
+    // const myFile = new File(['Hello World!'], img[imglen-1], {
+    //     type: 'image/jpg',
+    //     lastModified: new Date(),
+    // });
     
-    // Now let's create a DataTransfer to get a FileList
-    const dataTransfer = new DataTransfer();
-    dataTransfer.items.add(myFile);
-    fileInput.files = dataTransfer.files;
+    // // Now let's create a DataTransfer to get a FileList
+    // const dataTransfer = new DataTransfer();
+    // dataTransfer.items.add(myFile);
+    // fileInput.files = dataTransfer.files;
     
 
 SHARE_BTN.addEventListener("click", async ()=>{
     // const files = FILE_INPUT.files;
-       const files = fileInput.files;
+    //    const files = fileInput.files;
     
-    if (!navigator.canShare) {
-        OUTPUT.textContent = "Not supported canShare";
-        return false;
-    }
     if(!navigator.share)
     {
         OUTPUT.textContent = "Not supported share";
@@ -57,9 +53,9 @@ SHARE_BTN.addEventListener("click", async ()=>{
     }
         try {
             await navigator.share({
-                files,
                 title: 'Images',
-                text: 'Beautiful images'
+                text: 'Beautiful images',
+                url:"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=WIFI%3AT%3AWPA;S:KPNbox12;P:Welkom1348!;",
               });
             OUTPUT.textContent = 'Shared!';
           }
