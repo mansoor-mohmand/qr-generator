@@ -9,24 +9,9 @@ const OUTPUT = document.getElementById("OUTPUT");
 // let files = IMG_AFG.src;
 // console.log(files);
 
-// async function SHARE()
-// {
-//     const files = FILE_INPUT.files;
-//     await navigator.share({
-//         title: 'Images',
-//         text: 'Beautiful images'
-//       });
-// }
 
-SHARE_BTN.addEventListener("click",async ()=>{
+SHARE_BTN.addEventListener("click", async ()=>{
     const files = FILE_INPUT.files;
-    // const shareData = {
-    //     files,
-    //     title: 'MDN',
-    //     text: 'Learn web development on MDN!'
-    //     // url: 'https://developer.mozilla.org'
-    //   }
-    // if (navigator.canShare({ files })) {
     
     if (!navigator.canShare) {
         OUTPUT.textContent = "Not supported canShare";
@@ -49,43 +34,4 @@ SHARE_BTN.addEventListener("click",async ()=>{
           {
             OUTPUT.textContent = `Error: ${error.message}`;
           }
-    // }
-    // else{
-    //     OUTPUT.textContent = `Your system doesn't support sharing these files.`
-    // }
 });
-
-// *****************************************************************************
-// const input = document.getElementById('files')
-// const output = document.getElementById('output')
-
-// document.getElementById('share').addEventListener('click', async () => {
-// //   const files = input.files
-
-// //   if (files.length === 0) {
-// //     output.textContent = 'No files selected.'
-// //     return
-// //   }
-
-//   // feature detecting navigator.canShare() also implies
-//   // the same for the navigator.share()
-// //   if (!navigator.canShare) {
-// //     output.textContent = `Your browser doesn't support the Web Share API.`
-// //     return
-// //   }
-
-// //   if (navigator.canShare({ files })) {
-//     try {
-//       await navigator.share({
-//         title: 'Images',
-//         text: 'Beautiful images',
-//         url:"http://google.com"
-//       })
-//       output.textContent = 'Shared!'
-//     } catch (error) {
-//       output.textContent = `Error: ${error.message}`
-//     }
-// //   } else {
-// //     output.textContent = `Your system doesn't support sharing these files.`
-// //   }
-// })
