@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        main.main-wrapper
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #IMG_AFG{
+            width: 100px;
+        }
+        
+    </style>
     <title>qr code</title>
 </head>
 <body>
 
-    <!-- <img src="" alt="AFG flag image" id="IMG_AFG">   -->
-    <input type="file" id="FILE_INPUT" accept="image/*" multiple/>
+    <main class="main-wrapper">
+        <img src="afghanistan.jpg" alt="AFG flag image" id="IMG_AFG">  
+        <input type="file" id="FILE_INPUT" accept="image/*" multiple/>
+        
+        <button id="SHARE_BTN">SHARE</button>
     
-    <button id="SHARE_BTN">SHARE</button>
-
-    <p id="OUTPUT"></p>
-
+        <p id="OUTPUT"></p>
+    </main>
    
     <script src="app.js"></script>
 </body>
