@@ -4,32 +4,102 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        main.main-wrapper
-        {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        #IMG_AFG{
-            width: 100px;
-        }
-        
-    </style>
-    <title>qr code</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>QR Generator</title>
 </head>
 <body>
-
-    <main class="main-wrapper">
-        <img src="afghanistan.jpg" alt="AFG flag image" id="IMG_AFG">  
-        <input type="file" id="FILE_INPUT" accept="image/*" multiple/>
+        <!-- <img src="img/QRCODE.jpg" alt="AFG flag image" id="IMG_QR" >  
         
-        <button id="SHARE_BTN">SHARE</button>
-    
-        <p id="OUTPUT"></p>
+        <button id="btn_qrcode">Generate QR</button>
+
+        <a href="" download id="btn_qrdownload">Download png</a> -->
+
+    <main class="main-container">
+
+        <div class="wrapper">
+            <section class="left-section">
+                <div class="qrcode-container">
+                    <ul>
+                        <li class="qr-item active" data-item="text" onclick="CategorySelection(this)"><i class="fa-solid fa-comments"></i></li>
+                        <li class="qr-item" data-item="url" onclick="CategorySelection(this)"><i class="fa-solid fa-link"></i></li>
+                        <li class="qr-item" data-item="phone" onclick="CategorySelection(this)"><i class="fa-solid fa-phone"></i></li>
+                        <li class="qr-item" data-item="email" onclick="CategorySelection(this)"><i class="fa-solid fa-envelope"></i></li>
+                        <li class="qr-item" data-item="wifi" onclick="CategorySelection(this)"><i class="fa-solid fa-wifi"></i></li>
+                    </ul>
+                </div>
+                <div class="forms-container">
+                    <form class="form form-text"  id="form_text" data-form="text" >
+                        <h1>TEXT</h1>
+                        <textarea name="dataTextarea" class="data-textarea" id="data_textarea" placeholder="Enter your text">mansoor</textarea>
+                    </form>
+                    <form class="form form-url"  id="form_url" data-form="url">
+                        <h1>URL</h1>
+                        <input type="text" name="dataUrl" class="data-url" id="data_url" placeholder="Enter your url">
+                    </form>
+                    <form class="form form-phone" id="form_phone" data-form="phone">
+                        <h1>PHONE</h1>
+                        <input type="text" name="dataCountryCode" class="data-country-code" id="data_country_code" placeholder="Enter country code">
+                        <input type="text" name="dataAreaCode" class="data-area-code" id="data_area_code" placeholder="Enter area code">
+                        <input type="text" name="dataPhoneNumber" class="data-phone-number" id="data_phone_number" placeholder="Enter phone number">
+                    </form>
+                    <form class="form form-email" id="form_email" data-form="email">
+                        <h1>EMAIL</h1>
+                        <input type="email" name="dataEmail" class="data-email" id="data_email" placeholder="Add your email">
+                        <input type="text" name="dataSubject" class="data-subject" id="data_subject" placeholder="Enter your subject">
+                        <textarea name="dataMessage" class="data-message" id="data_message" placeholder="Enter your message"></textarea>
+                    </form>
+                    <form class="form form-wifi" id="form_wifi" data-form="wifi">
+                        <h1>WIFI</h1>
+                        <div class="selection">
+                            <select name="dataEncryption" id="data_encryption">
+                                <option value="WPA">WPA</option>
+                                <option value="WEP">WEP</option>
+                                <option value="nopass" selected>unencrypted</option>
+                            </select>
+                            <div>
+                              <input type="checkbox" name="dataWifiHidden" id="data_wifi_hidden" unchecked> <label for="data_wifi_hidden"> Wifi network hidden</label> 
+                            </div> 
+                        </div>
+                        <input type="text" name="dataSsid" class="data-ssid" id="data_ssid" placeholder="Enter network name">
+                        <input type="password" name="dataPassword" class="data-password" id="data_password"  placeholder="Enter your password">
+                    </form>
+                </div>
+                <div class="generate-btn-container">
+                    <button class="btn-qr-generator"  id="btn_qr_generator">GENERATE QR CODE</button>
+                </div>
+            </section>
+
+
+            <section class="right-section">
+                <div class="genetared-qrcode-container" id="generated_qrcode">
+                    <div class="qrcode-content">
+                        <div class="qrcode__icontext">
+                            <i class="fa-solid fa-comments" id="qrcode__icon"></i>
+                            <span id="qrcode__text">SCAN ME</span>
+                        </div>
+                        <div class="qrcode__image">
+                            <img src="img/qrcode.png" alt="" id="qrcode__image">
+                        </div>
+                    </div>
+                </div>
+                <div class="downloadbtn-qrcode-container">
+                    <div class="downloadbtn-content">
+                        <button class="downloadbtn" id="download_btn">
+                            <i class="fa-solid fa-circle-down"></i> DOWNLOAD
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+        
     </main>
    
+    
+    <!-- <script src="html2canvas.js"></script> -->
+    
     <script src="app.js"></script>
 </body>
 </html>
