@@ -352,8 +352,6 @@ main.main-container
     main.main-container 
     {
         height: 100%;
-        justify-content: unset; 
-        align-items: unset; 
     }
     .main-container .wrapper {
         grid-template-columns: 1fr;
