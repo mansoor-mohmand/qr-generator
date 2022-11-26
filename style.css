@@ -115,7 +115,6 @@ main.main-container
     width: 100%;
     background:#fff;
     border-radius:30px;
-    padding: 8px;
     display: flex;
     justify-content: center;
     align-items:center;
@@ -429,6 +428,10 @@ main.main-container
         /* justify-content: space-around; */
         row-gap: 40px;
         height: 600px; 
+    }
+    .wrapper .left-section .qrcode-container
+    {
+        border-radius:10px;
     }
 
     .wrapper .left-section .qrcode-container ul li
