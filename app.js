@@ -42,7 +42,7 @@ function GetFormData(form_id)
 const createURL = (data) =>
 {
     const QR_CODE_FORMAT = "qzone=0&margin=0&size=400x400&color=FFFFFF&bgcolor=00298A&format=png&ecc=L";
-    const url = `http://api.qrserver.com/v1/create-qr-code/?data=${data}&${QR_CODE_FORMAT}`;
+    const url = `https://api.qrserver.com/v1/create-qr-code/?data=${data}&${QR_CODE_FORMAT}`;
     return url;
 }
 
