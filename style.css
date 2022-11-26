@@ -29,6 +29,13 @@ h1
     font-weight: 550;
     color:var(--p-color);
 }
+
+button,ul li,.selection :where(input[type="checkbox"],select,label)
+{
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
 
@@ -371,6 +378,8 @@ main.main-container
     outline: 0;
     padding: 15px 30px;
     width: 100%;
+
+
     
     transition: background-color 0.20s;
 }
@@ -391,7 +400,7 @@ main.main-container
     main.main-container 
     {
         height: 100%;
-        margin-top: 40px;
+        margin-top: 43px;
     }
     .main-container .header
     {

@@ -73,8 +73,8 @@ const getURL = () =>
 
 const getPHONE = () =>
 {
-    let {dataCountryCode,dataAreaCode,dataPhoneNumber} = GetFormData(ACTIVE_QR_CODE);
-    let phone = encodeURIComponent(`tel:${dataCountryCode}${dataAreaCode}${dataPhoneNumber}`);
+    let {dataCountryCode,dataPhoneNumber} = GetFormData(ACTIVE_QR_CODE);
+    let phone = encodeURIComponent(`tel:${dataCountryCode}${dataPhoneNumber}`);
 
     Fetch_QR_CODE(createURL(phone)); 
 }
