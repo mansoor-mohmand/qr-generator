@@ -44,6 +44,41 @@ main.main-container
    align-items:center; 
 }
 
+.main-container .header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items:center;
+    padding: 10px 50px;
+    background:var(--p-color);
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    z-index: 1000;
+}
+
+.header .header-title-logo
+{
+    display: flex;
+    align-items:center;    
+}
+
+.header .header-title-logo span
+{
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-left: 5px;
+}
+
+.header .header-title-logo i
+{
+    font-size: 16px;
+}
+
 .main-container .wrapper
 {
     display: grid;
@@ -61,10 +96,11 @@ main.main-container
 /* ? left section styling */
 .wrapper .left-section
 {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%; 
+  
+    display: grid;
+    grid-template-rows: 60px 2fr 60px;
+    row-gap: 40px;
+    height: 100%;
 }
 
 .wrapper .left-section .qrcode-container
@@ -167,7 +203,7 @@ main.main-container
 }
 
 .wrapper .forms-container .form textarea{
-    height: 90px;
+    height: 100px;
 }
 
 
@@ -214,9 +250,10 @@ main.main-container
 
 .right-section .genetared-qrcode-container
 {
-    padding: 10px;
-    height: 300px;
-    width: 210px;
+    padding: 25px;
+    height: 360px;
+    width: 100%;
+    background:var(--p-color);
 }
 
 
@@ -248,7 +285,7 @@ main.main-container
 
 .right-section .genetared-qrcode-container .qrcode-content .qrcode__icontext #qrcode__icon
 {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .right-section .genetared-qrcode-container .qrcode-content .qrcode__icontext #qrcode__text
@@ -258,6 +295,7 @@ main.main-container
     letter-spacing: 2px;
     margin-top: 15px;
     color:#a9a6cd;
+    white-space: nowrap;
 }
 
 .right-section .genetared-qrcode-container .qrcode-content .qrcode__image
@@ -308,8 +346,9 @@ main.main-container
 
 .right-section .downloadbtn-qrcode-container
 {
-    padding: 10px;
-    width: 210px;;
+    padding: 25px;
+    padding-top: 0;
+    width: 100%;
 }
 
 .right-section .downloadbtn-qrcode-container .downloadbtn-content
@@ -343,7 +382,7 @@ main.main-container
 }
 .wrapper .generate-btn-container .btn-qr-generator:active
 {
- background-color:#2817dd;   
+ background-color:#4938fb;   
 }
 
 
@@ -352,6 +391,19 @@ main.main-container
     main.main-container 
     {
         height: 100%;
+        margin-top: 40px;
+    }
+    .main-container .header
+    {
+        padding: 13px 10px;
+    }
+    .header .header-title-logo span
+    {
+        font-size: 14px;
+    }
+    .header .header-title-logo i
+    {
+        font-size: 15px;
     }
     .main-container .wrapper {
         grid-template-columns: 1fr;
@@ -361,7 +413,20 @@ main.main-container
     }
     .main-container .wrapper .left-section
     {
-        height: 100vh;
+       
+        display: grid;
+        grid-template-rows: 1fr 2fr 1fr;
+        /* flex-direction: column; */
+        /* justify-content: space-around; */
+        row-gap: 40px;
+        height: 600px; 
+    }
+
+    .wrapper .left-section .qrcode-container ul li
+    {
+
+        width: 40px;
+        height: 40px;
     }
     .main-container .wrapper .right-section
     {
@@ -371,8 +436,8 @@ main.main-container
     .right-section .genetared-qrcode-container
     {
         height: 430px;
-        width: 310px;
-        padding: 20px;
+        width: 100%;
+        padding: 30px;
         background: var(--p-color);
     }
 
@@ -381,11 +446,17 @@ main.main-container
     {
         height:70px;
     }
+
+    .right-section .genetared-qrcode-container .qrcode-content .qrcode__icontext #qrcode__icon
+    {
+        font-size: 23px;
+    }
     .right-section .genetared-qrcode-container .qrcode-content .qrcode__image
     {
-        height: 175px;
-        width: 175px;
+        height: 185px;
+        width: 185px;
     }
+
     
     .forms-container .form.form-wifi .selection
     {
@@ -397,7 +468,8 @@ main.main-container
 
     .right-section .downloadbtn-qrcode-container
     {
-        width: 310px;
-        padding: 20px;
+        width: 100%;
+        padding:30px;
+        padding-top: 0;
     }
 }
